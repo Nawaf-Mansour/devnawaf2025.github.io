@@ -1,0 +1,334 @@
+:root {
+  --bg: #000000;
+  --card-bg: #101010;
+  --card-border: #252525;
+  --accent: #00e5ff;
+  --accent-soft: rgba(0, 229, 255, 0.12);
+  --text-main: #ffffff;
+  --text-muted: #b3b3b3;
+  --btn-bg: #181818;
+  --btn-hover: #222222;
+  --shadow-soft: 0 14px 40px rgba(0, 0, 0, 0.6);
+  --radius-xl: 22px;
+  --radius-lg: 16px;
+  --transition: 0.2s ease-out;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: radial-gradient(circle at top, #151515 0, #000 55%, #000 100%);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", sans-serif;
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 16px;
+  direction: rtl;
+}
+
+.shell {
+  width: 100%;
+  max-width: 440px;
+}
+
+.card {
+  background: linear-gradient(135deg, #0a0a0a 0%, #050505 40%, #050505 100%);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-soft);
+  border: 1px solid var(--card-border);
+  padding: 22px 18px 20px;
+  backdrop-filter: blur(18px);
+  position: relative;
+  overflow: hidden;
+}
+
+/* لمعة بسيطة في الخلفية */
+.card::before {
+  content: "";
+  position: absolute;
+  inset: -40%;
+  background: radial-gradient(circle at top, rgba(0, 229, 255, 0.16), transparent 60%);
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.card-inner {
+  position: relative;
+  z-index: 1;
+}
+
+.profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  text-align: center;
+  margin-bottom: 18px;
+}
+
+.avatar-wrap {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  padding: 3px;
+  background: radial-gradient(circle at top, var(--accent), transparent 70%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.avatar {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: #1c1c1c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.avatar-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #1c1c1c;
+}
+
+.name {
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+   color: #cccccc;
+}
+
+.handle {
+  font-size: 0.78rem;
+  color: var(--accent);
+  padding: 2px 10px;
+  border-radius: 999px;
+  background: rgba(0, 229, 255, 0.08);
+  border: 1px solid rgba(0, 229, 255, 0.3);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.handle-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.bio {
+  font-size: 0.85rem;
+  line-height: 1.7;
+  color: var(--text-muted);
+  margin-top: 6px;
+  max-width: 320px;
+}
+
+.badge-row {
+  margin-top: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+}
+
+.badge {
+  font-size: 0.72rem;
+  padding: 4px 9px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(255, 255, 255, 0.02);
+  color: var(--text-muted);
+}
+
+.badge-accent {
+  border-color: rgba(0, 229, 255, 0.5);
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+.links {
+  margin-top: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  list-style: none;
+}
+
+.link-item {
+  list-style: none;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: var(--radius-lg);
+  background: var(--btn-bg);
+  padding: 11px 13px;
+  text-decoration: none;
+  color: var(--text-main);
+  transition: transform var(--transition), box-shadow var(--transition), background var(--transition), border-color var(--transition);
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+}
+
+.link-main {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-align: right;
+}
+
+.link-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 999px;
+  background: #0f0f0f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+}
+
+.link-icon i {
+  font-size: 16px;
+}
+
+.link-texts {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.link-title {
+  font-size: 0.86rem;
+  font-weight: 600;
+}
+
+.link-sub {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.link-arrow {
+  font-size: 0.9rem;
+  opacity: 0.75;
+}
+
+.link:hover {
+  background: var(--btn-hover);
+  border-color: rgba(0, 229, 255, 0.5);
+  transform: translateY(-1px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.8);
+}
+
+.link:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.footer {
+  margin-top: 14px;
+  text-align: center;
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  opacity: 0.7;
+}
+
+.footer span {
+  color: var(--accent);
+}
+
+@media (max-width: 480px) {
+  .card {
+    padding: 20px 14px 18px;
+  }
+
+  .avatar-wrap {
+    width: 82px;
+    height: 82px;
+  }
+}
+
+
+
+
+
+.accounts-grid {
+  margin-top: 18px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 16px; /* المسافة بين الأيقونات */
+}
+
+.account-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* دائرة الحساب */
+.account-circle {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  
+  /* خلفية مع إضاءة دائمة */
+  background: radial-gradient(circle at top, rgba(0, 229, 255, 0.35), #0b0b0b 65%);
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+
+  border: 1px solid rgba(0, 229, 255, 0.6);
+  box-shadow: 0 0 12px rgba(0, 229, 255, 0.6);
+
+  transition: 0.2s ease-out;
+}
+
+/* الأيقونة داخل الدائرة */
+.account-circle i {
+  font-size: 22px; /* مناسب لحجم 50px */
+  color: #ffffff !important;
+}
+
+/* اسم التطبيق تحت الدائرة */
+.account-label {
+  margin-top: 6px;
+  font-size: 0.75rem;
+  color: var(--text-main);
+  opacity: 0.9;
+  text-align: center;
+}
+
+.section-title {
+  margin-top: 22px;
+  margin-bottom: 10px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-align: right;
+  border-right: 3px solid var(--accent);
+  padding-right: 8px;
+  opacity: 0.9;
+}
